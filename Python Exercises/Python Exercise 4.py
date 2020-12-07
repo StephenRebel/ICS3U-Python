@@ -1,5 +1,20 @@
-word_one = input("Please enter a word: ")
-word_two = input("Please enter a seconds word: ")
+def valid_word(word):
+    return all(char.isalpha() for char in word)
+
+
+while True:
+    word_one = input("Please enter a word: ")
+    if valid_word(word_one) != True:
+        print("Input must be a word")
+    else:
+        break
+
+while True:
+    word_two = input("Please enter a seconds word: ")
+    if valid_word(word_two) != True:
+        print("Input must be a word")
+    else:
+        break
 
 """
 In programming and coding something being alphabetically prior to another

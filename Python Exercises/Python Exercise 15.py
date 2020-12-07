@@ -14,4 +14,4 @@ while True:
     print("This test score is not within the acceptable range of 0 and 100")
 
   except ValueError:
-    print("This value is not an intager")
+    print("This value is not an integer")

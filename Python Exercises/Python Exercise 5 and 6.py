@@ -49,9 +49,9 @@ elif mark >= 50:
     print("Level 1")
 else:
     print("Level R")
-"""
+
 print("Thank you and goodbye")
-"""
+
 a. No, there are no differences in the versions of this program.
 b. Version 3 is the most efficient version, aswell as being the easiest to read.
 This is because of the compact and efficient use of statements and operators.
@@ -62,29 +62,25 @@ understanding of how python cheks if statements, they are in a good order which
 demonstrate the programmer was aware that if the previous statement was false there
 was no need to repeat that condition in the condition of the next line.
 """
+# Excercise 6
 
-"""
-Excercise 6
-"""
 while True:
-  price = float(input("What is the total price of your purchse: "))
-  if price < 0:
-    print("That is an invalid value")
-  else:
-    break
+    try:
+        price = float(input("What is the total price of your purchse: "))
+        if price < 0:
+            print("That is an invalid value, must be a positive number")
+        else:
+            break
+    except ValueError:
+        print("Value must be a number")
 
 if price < 25:
-  print("There are no savings available")
-  print(f"The final cost is {price}")
+    print(f"There are no savings available. The final cost is {price}")
 elif price < 50:
-  print("You can save 10%")
-  print(f"The final cost is {price - (price*0.1)}")
+    print(f"You can save 10%. The final cost is {price - (price*0.1)}")
 elif price < 75:
-  print("You can save 20%")
-  print(f"The final cost is {price - (price*0.2)}")
+    print(f"You can save 20%. The final cost is {price - (price*0.2)}")
 elif price < 100:
-  print("You can save 30%")
-  print(f"The final cost is {price - (price*0.3)}")
+    print(f"You can save 30%, The final cost is {price - (price*0.3)}")
 else:
-  print("You can save 40%")
-  print(f"The final cost is {price - (price*0.4)}")
+    print(f"You can save 40%. The final cost is {price - (price*0.4)}")
