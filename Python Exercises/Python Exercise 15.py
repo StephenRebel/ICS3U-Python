@@ -3,7 +3,7 @@ class ValueOutOfRange(Exception):
 
 while True:
   try:
-    test_score = int(input("Please enter a test score between 0 and 100: "))
+    test_score = float(input("Please enter a test score between 0 and 100: "))
     if test_score >= 0 and test_score <= 100:
       print(f"The test score was {test_score}")
       break
@@ -14,4 +14,4 @@ while True:
     print("This test score is not within the acceptable range of 0 and 100")
 
   except ValueError:
-    print("This value is not an integer")
+    print("This value is not a valid number")

@@ -6,4 +6,4 @@ def correct_input():
     except ValueError:
       print("That is not an acceptable value for a real number")
 
-print(correct_input())
+print(f"You entered the real number: {correct_input()}")
