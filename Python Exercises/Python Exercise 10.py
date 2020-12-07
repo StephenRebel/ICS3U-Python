@@ -11,5 +11,10 @@ while play_again == "yes":
     count += 1
     print("Next role is: " + str(roll_two))
   print(f"It took you {count} roles to get your point again.")
-  play_again = input("Do you want to play again? ('yes','no'): ")
+  while True:
+    play_again = input("Do you want to play again? ('yes','no'): ")
+    if play_again == "yes" or play_again == "no":
+      break
+    else:
+      print("Sorry you must input either 'yes' or 'no'")
   print("\n\r")

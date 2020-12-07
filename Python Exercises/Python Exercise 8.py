@@ -1,6 +1,21 @@
-start = int(input("Enter a starting value: "))
-end = int(input("Enter a ending value: "))
-step = int(input("What is the increment: "))
+class ValueOutOfRange(Exception):
+  pass
+
+while True:
+  try:
+    start = int(input("Enter a starting value: "))
+    end = int(input("Enter a ending value: "))
+    step = int(input("What is the increment: "))
+    if start > end:
+      raise ValueOutOfRange
+    else:
+      break
+
+  except ValueError:
+    print("One of these values is not an integer. Please reinput your values")
+
+  except ValueOutOfRange:
+    print("End value cannot be lower than the start value. Please reinput you values")
 
 num_list = list(range(start, end, step))
 

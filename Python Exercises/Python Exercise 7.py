@@ -2,7 +2,12 @@ count = 0
 word = ""
 print("Please type 'exit' to stop")
 while word != "exit":
-  word = input("Enter a word: ")
+  while True:
+    word = input("Enter a word: ")
+    if all(char.isalpha() for char in word) != True:
+      print("Input must be a single word")
+    else:
+      break
   if word != "exit":
     count += 1
 print(f"You entered {count} words")
