@@ -27,6 +27,11 @@ def guess(upper_bound, lower_bound):
             print("Sorry, that is not an acceptable value, must be an integer")
     return user_guess
 
+# Initializes and resets the file that contains the score values and names
+f = open("Scores.txt", "w")
+f.write("Scores:")
+f.close()
+
 # Initializing the main game loop
 while True:
 
@@ -41,6 +46,7 @@ while True:
             break
         else:
             print("You must enter the words 'custom' or 'computer' as a response")
+            
     # If statement sets the ranges for the game based on the user input from the previous question
     if game_type == "custom":
         # Does a bullet proofing check to make sure the user inputs a proper value, using try except and ifs
@@ -85,6 +91,45 @@ while True:
     # The user has won the game and exitted the game loop, these prints tell them about their win
     print(f"Congratulations, your guess the correct number, {target_num}")
     print(f"You took {num_guesses} guesses to guess the correct number")
+
+    # Starts the loop for bullet proofing and asking if the user wants to save their score
+    while True:
+        take_score = input("Would you like to save your score? ")
+        if take_score == "yes" or take_score == "no":
+            break
+        else:
+            print("Sorry, you msut input 'yes' or 'no'")
+    
+    # Determines if the user wanted to save their score or not and uses file handling to save it
+    if take_score == "yes":
+        # Handles asking for a valid player name and bullet proofing
+        while True:
+            player_name = input("Please enter your username: ")
+            if all(char.isalpha() or char.isspace() for char in player_name):
+                print(f"Thank you {player_name}")
+                break
+            else:
+                print("Sorry, your username can only contain letters and spaces")
+        # File handling, the file will be oppened to append, a new line will be started
+        # and the players name and their score will be added
+        f = open("Scores.txt","a")
+        f.write("\n")
+        f.write(player_name + " took " + str(num_guesses) + " guesses")
+        f.close()
+
+    # Asks the user if they want to view the score sheet, bullet proofed
+    while True:
+        score_intent = input("Would you like to see the scores? 'yes' or 'no': ")
+        if score_intent == "yes" or score_intent == "no":
+            break
+        else:
+            print("Sorry, you must input either 'yes' or 'no'")
+
+    # Based on the response will open and display the file to the terminal, or ignore if not wanted
+    if score_intent == "yes":
+        f = open("Scores.txt", "r")
+        print(f.read())
+        f.close()
 
     # Ask the player if they wish to play again, then using the if decides
     # what to do based on the input
