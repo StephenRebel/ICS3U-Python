@@ -27,10 +27,25 @@ def guess(upper_bound, lower_bound):
             print("Sorry, that is not an acceptable value, must be an integer")
     return user_guess
 
-# Initializes and resets the file that contains the score values and names
-f = open("Scores.txt", "w")
-f.write("Scores:")
-f.close()
+# Determines wheter the user would like to reset the scores or not, contains bullet proofing
+while True:
+    file_clear = input("Would you like to reset the scores from your last playthough? ")
+    if file_clear == "yes" or file_clear == "no":
+        break
+    else:
+        print("Sorry, you must input either 'yes' or 'no'")
+
+# Will determin if the file will be reset or not
+if file_clear == "yes":
+    # Initializes and resets the file that contains the score values and names
+    f = open("Scores.txt", "w")
+    f.write("Scores:")
+    f.close()
+    print("Scores have been cleared")
+else:
+    # Will instead do nothing to the file and leave it as it is, or if the file does not exist
+    # nothing will happen
+    print("Your new scores will be added to the existing ones")
 
 # Initializing the main game loop
 while True:
