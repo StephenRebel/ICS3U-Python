@@ -34,12 +34,28 @@ while True:
     num_guesses = 0
 
     # Determins which version of the game the user wants to play
-    game_type = input("Would you like to play a 'custom' number set or a 'computer' generated set? ")
-    
+    while True:
+        # Bullet proofing to only accept the desired inputs
+        game_type = input("Would you like to play a 'custom' number set or a 'computer' generated set? ")
+        if game_type == "custom" or game_type == "computer":
+            break
+        else:
+            print("You must enter the words 'custom' or 'computer' as a response")
     # If statement sets the ranges for the game based on the user input from the previous question
     if game_type == "custom":
-        lower_bound = int(input("Please enter a positive integer for the lower bound: "))
-        upper_bound = int(input("Please enter a positive integer for the upper bound: "))
+        # Does a bullet proofing check to make sure the user inputs a proper value, using try except and ifs
+        while True:
+            try:
+                lower_bound = int(input("Please enter a positive integer for the lower bound: "))
+                upper_bound = int(input("Please enter a positive integer for the upper bound: "))
+                if lower_bound >= 0 and upper_bound >= 0 and lower_bound < upper_bound:
+                    break
+                elif lower_bound < 0 or upper_bound <0:
+                    print("The range values must be greater than 0")
+                else:
+                    print("The lower bound cannot be greater than the upper bound")
+            except ValueError:
+                print("Invalid input, you must input an integer")
     else:
         lower_bound = random.randint(1, 20)
         upper_bound = random.randint(100, 150)
@@ -72,7 +88,13 @@ while True:
 
     # Ask the player if they wish to play again, then using the if decides
     # what to do based on the input
-    play_again = input("Would you like to play again? 'yes' or 'no': ")
+    while True:
+        # Bullet proofing to only accept the desired inputs
+        play_again = input("Would you like to play again? 'yes' or 'no': ")
+        if play_again == "yes" or play_again == "no":
+            break
+        else:
+            print("Invalid input, you must input the words, 'yes' or 'no'")
 
     if play_again == "yes":
         print("Alright, the game is restarting")
