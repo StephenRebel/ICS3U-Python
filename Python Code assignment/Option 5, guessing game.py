@@ -29,19 +29,22 @@ def guess(upper_bound, lower_bound):
 
 # Determines wheter the user would like to reset the scores or not, contains bullet proofing
 while True:
-    file_clear = input("Would you like to reset the scores from your last playthough? ")
-    if file_clear == "yes" or file_clear == "no":
+    file_clear = input("Would you like to reset the scores from your last playthough? If this is your first playthrough please enter 'first':  ")
+    if file_clear == "yes" or file_clear == "no" or file_clear == "first":
         break
     else:
         print("Sorry, you must input either 'yes' or 'no'")
 
 # Will determin if the file will be reset or not
-if file_clear == "yes":
+if file_clear == "yes" or file_clear == "first":
     # Initializes and resets the file that contains the score values and names
     f = open("Scores.txt", "w")
     f.write("Scores:")
     f.close()
-    print("Scores have been cleared")
+    if file_clear == "yes":
+        print("Scores have been reset")
+    else:
+      print("File has been created")
 else:
     # Will instead do nothing to the file and leave it as it is, or if the file does not exist
     # nothing will happen
