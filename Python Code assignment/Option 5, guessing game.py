@@ -1,10 +1,10 @@
 """
 Stephen Rebel: Number guessing game
 
-This program is a small game for my ICS3U course where a user will be given the coice of
+This program is a small game for my ICS3U course where a user will be given the choice of
 entering their own custom value set or playing with a pre generated set with slight randomization.
-This gae will prompt a user to enter a number and will give hints if they are too high or too low.
-The gaem will end when the user has guessed the correct number that will be randomly selected
+This game will prompt a user to enter a number and will give hints if they are too high or too low.
+The game will end when the user has guessed the correct number that will be randomly selected
 each playthrough. The user has the option to play again or to quit.
 """
 

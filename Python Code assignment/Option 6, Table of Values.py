@@ -1,3 +1,12 @@
+"""
+Stephen Rebel: Table of Values and Graph for functions
+
+This is a program for my ICS3U course where a user will input a desired function type
+then the program will get their input for the variables. The program will then run all necessary
+calculations and output a formatted table of values along with a graph of the function.
+
+** To run this program properly you must pip install matplotlib to output the graphs
+"""
 # Imports the time library so I can use delays
 import time
 
