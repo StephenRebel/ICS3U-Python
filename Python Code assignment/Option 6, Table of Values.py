@@ -29,8 +29,7 @@ def user_var():
     print(" {:10} X-Values: {:20} Y-Values: ".format("", ""))
     return a, b, c
 
-# A function that will get user input for the variables of the advanced functions and return them
-
+# A procedure that will get user input for the variables of the advanced functions and output the table
 def adv_user_var(adv_func_type):
     # Bullet proofing to assure valid numbers are input
     while True:
@@ -38,6 +37,13 @@ def adv_user_var(adv_func_type):
             a = float(input("Please enter the value for a: "))
             h = float(input("Please enter the value for h: "))
             k = float(input("Please enter the value for k: "))
+            if adv_func_type == 3:
+                while True:
+                    b = float(input("Please enter the value for b from 0 - 10: "))
+                    if b >=0 and b <= 10:
+                        break
+                    else:
+                        print("b must be between 0 and 10")
             break
         # Handles errors that would crash the program
         except ValueError:
@@ -53,7 +59,7 @@ def adv_user_var(adv_func_type):
         elif adv_func_type == 2:
             y = a*abs(equa_x - h) + k
         else:
-            y = a*2**(equa_x - h) + k
+            y = a*b**(equa_x - h) + k
         print(" {:17.1f} {:31.2f} ".format(equa_x, y))
         equa_x += 1
 
@@ -89,7 +95,7 @@ while True:
         clear()
         print("For an equation in the form: y = ax^2 + bx + c")
         equa_vars = user_var()
-        quad_vertex = (-1*equa_vars[1])/2*equa_vars[0]
+        quad_vertex = -equa_vars[1]/(2*equa_vars[0])
         equa_x = quad_vertex - 4
         while equa_x <= quad_vertex + 4:
             y = equa_vars[0]*equa_x**2 + equa_vars[1]*equa_x + equa_vars[2]
@@ -126,7 +132,7 @@ while True:
         # Calls for the table procedure for exponential
         else:
             clear()
-            print("For an equation in the form: y = a*2^(x - h) + k")
+            print("For an equation in the form: y = a*b^(x - h) + k")
             adv_user_var(3)
 
     # Bullet proofing user input if they's like to run the program again
