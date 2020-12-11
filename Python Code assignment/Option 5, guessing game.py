@@ -29,7 +29,7 @@ def guess(upper_bound, lower_bound):
 
 # Determines wheter the user would like to reset the scores or not, contains bullet proofing
 while True:
-    file_clear = input("Would you like to reset the scores from your last playthough? If this is your first playthrough please enter 'first':  ")
+    file_clear = input("Would you like to reset the scores from your last playthough? 'yes' or 'no' If this is your first playthrough please enter 'first':  ")
     if file_clear == "yes" or file_clear == "no" or file_clear == "first":
         break
     else:
@@ -121,7 +121,7 @@ while True:
 
     # Starts the loop for bullet proofing and asking if the user wants to save their score
     while True:
-        take_score = input("Would you like to save your score? ")
+        take_score = input("Would you like to save your score? 'yes or 'no' ")
         if take_score == "yes" or take_score == "no":
             break
         else:
@@ -131,7 +131,7 @@ while True:
     if take_score == "yes":
         # Handles asking for a valid player name and bullet proofing
         while True:
-            player_name = input("Please enter your username: ")
+            player_name = input("Please enter a username containing only letters adn spaces: ")
             if all(char.isalpha() or char.isspace() for char in player_name):
                 print(f"Thank you {player_name}")
                 break
