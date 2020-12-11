@@ -33,7 +33,7 @@ while True:
     if file_clear == "yes" or file_clear == "no" or file_clear == "first":
         break
     else:
-        print("Sorry, you must input either 'yes' or 'no'")
+        print("Sorry, you must input either 'yes' or 'no', or 'first'")
 
 # Will determin if the file will be reset or not
 if file_clear == "yes" or file_clear == "first":
@@ -41,6 +41,9 @@ if file_clear == "yes" or file_clear == "first":
     f = open("Scores.txt", "w")
     f.write("Scores:")
     f.close()
+    # High score file starts here
+    g = open("Highscores.txt", "w")
+    g.close()
     if file_clear == "yes":
         print("Scores have been reset")
     else:
@@ -52,6 +55,12 @@ else:
 
 # Initializing the main game loop
 while True:
+
+    h_scores =[]
+    g = open("Highscores.txt", "r")
+    for line in g:
+        h_scores.append(int(line))
+    g.close()
 
     # Initializing the counter variable and resetting if the user wishes to play again
     num_guesses = 0
@@ -135,6 +144,14 @@ while True:
         f.write(player_name + " took " + str(num_guesses) + " guesses")
         f.close()
 
+        # file handling that reinputs the highscores from a sorted list
+        h_scores.append(num_guesses)
+        h_scores.sort()
+        g = open("Highscores.txt", "w")
+        for x in h_scores:
+            g.write(str(x) + "\n")
+        g.close()
+
     # Asks the user if they want to view the score sheet, bullet proofed
     while True:
         score_intent = input("Would you like to see the scores? 'yes' or 'no': ")
@@ -148,6 +165,11 @@ while True:
         f = open("Scores.txt", "r")
         print(f.read())
         f.close()
+        print("\n")
+        print("Highscores: ")
+        g = open("Highscores.txt", "r")
+        print(g.read())
+        g.close()
 
     # Ask the player if they wish to play again, then using the if decides
     # what to do based on the input
