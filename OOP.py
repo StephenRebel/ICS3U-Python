@@ -1,3 +1,4 @@
+"""
 class Cat:
 
     def __init__(self, name, age):
@@ -27,6 +28,7 @@ c.set_age(5)
 print(f"{c.get_name()} is {c.pet_age()} years old.")
 c2 = Cat("Oreo", 7)
 print(f"{c2.get_name()} is {c2.pet_age()} years old.")
+"""
 
 """
 class Students:
@@ -59,10 +61,10 @@ class Course:
         return value / len(self.students)
 
 s1 = Students("Tim", 17, 96)
-s2 = Students("Danie", 17, 94)
-s3 = Students("Andrew", 17, 89)
-s4 = Students("Hunter", 16, 65)
-s5 = Students("Autumn", 12, 73)
+s2 = Students("Bob", 17, 94)
+s3 = Students("Craig", 17, 89)
+s4 = Students("Daniel Agapov", 16, 65)
+s5 = Students("Jeff", 12, 73)
 
 course = Course("Computer_Science", 3)
 course.add_student(s1)
